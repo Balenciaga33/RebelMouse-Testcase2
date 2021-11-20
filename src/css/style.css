@@ -109,7 +109,7 @@ body{
     height: 38px;
     border: 1px solid #DFDFDF;
     border-radius: 18px;
-    background: #fff url(/src/img/icons/search-light.svg) no-repeat left 16px center;
+    background: #fff url(src/img/icons/search-light.svg) no-repeat left 16px center;
     font-size: 13px;
     line-height: 16px;
     padding: 0 16px 0 48px;
@@ -255,7 +255,7 @@ body{
     padding: 0px 17px;
     border-radius: 18px;
     border: 1px solid #DFDFDF;
-    background: #fff url(/src/img/icons/select-arrow.svg) no-repeat right 17px center;
+    background: #fff url(src/img/icons/select-arrow.svg) no-repeat right 17px center;
     -webkit-appearance: none;
     font-size: 13px;
     color: #76919F;
@@ -280,11 +280,11 @@ body{
 .content__item-date{
     padding: 0 0 0 20px;
     margin-bottom: 3px;
-    background: url(/src/img/icons/calendar.svg) no-repeat;
+    background: url(src/img/icons/calendar.svg) no-repeat;
 }
 .content__item-location{
     padding: 0 0 0 16px;
-    background: url(/src/img/icons/location.svg) no-repeat;
+    background: url(src/img/icons/location.svg) no-repeat;
 }
 .content__item-img{
     flex: 0 0 115px;
