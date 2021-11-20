@@ -5,626 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test Case for RebelMouse by Alina Kravchenko</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-        @font-face {
-            font-family: "Proxima Nova";
-            src: url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.eot');
-            src: url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.eot?#iefix') format("embedded-opentype"),url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.woff2') format("woff2"),url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.woff') format("woff"),url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.ttf') format("truetype"),url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_4_0.svg#wf') format("svg");
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: "Proxima Nova";
-            src: url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.eot');
-            src: url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.eot?#iefix') format("embedded-opentype"),url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.woff2') format("woff2"),url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.woff') format("woff"),url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.ttf') format("truetype"),url('https://d25purrcgqtc5w.cloudfront.net/dist/fonts/proximanova/302D42_5_0.svg#wf') format("svg");
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        /*==================== RESET CSS ====================*/
-        *{padding:0;margin:0;border:0;}
-        *,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-        :focus,:active{outline:none;}
-        a:focus,a:active{outline:none;}
-        header,aside{display:block;}
-        html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
-        input,button,textarea{font-family:inherit;}
-        input::-ms-clear{display:none;}
-        button{cursor:pointer;}
-        button::-moz-focus-inner{padding:0;border:0;}
-        a,a:visited{text-decoration:none;}
-        a:hover{text-decoration:none;}
-        ul li{list-style:none;}
-        img{vertical-align:top;}
-
-        body{
-            background: #F6F6F6;
-            font-family: "Proxima Nova";
-        }
-        .container{
-            margin: 0 auto;
-        }
-        /*==================== HEADER TOP BAR ====================*/
-        .top-bar{
-            background-color: #00344F;
-            height: 28px;
-            display: flex;
-            align-items: center;
-        }
-        .top-bar__language{
-            justify-content: flex-end;
-            display: flex;
-        }
-        .top-bar__language a{
-            font-size: 13px;
-            color: #fff;
-            font-family: 'Roboto', sans-serif;
-            line-height: 15px;
-        }
-        /*==================== HEADER NAV ====================*/
-        .nav{
-            display: flex;
-            min-height: 70px;
-        }
-        .nav__container{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .nav__logo{
-            margin-top: 2px;
-        }
-        .nav__logo-desktop{
-            display: none;
-        }
-        .nav__menu-desktop{
-            display: none;
-        }
-        .nav__subscribe{
-            display: none;
-        }
-        /*==================== MOBILE MENU ====================*/
-        .nav__dropdown,
-        .nav__search-dropdown{
-            width: 100%;
-            position: absolute;
-            background: #fff;
-            left: 0;
-            margin-top: 28px;
-            display: none;
-        }
-        .nav__search-dropdown{
-            padding: 20px;
-        }
-        .visible{
-            display: block;
-        }
-        .nav__top{
-            padding: 20px;
-        }
-        .nav__bottom{
-            padding: 20px 20px 34px 20px;
-            background-color: #2E2E2E;
-        }
-        .nav__search-icon,
-        .nav__bars {
-            cursor: pointer;
-        }
-        .site-search{
-            width: 100%;
-            height: 38px;
-            border: 1px solid #DFDFDF;
-            border-radius: 18px;
-            background: #fff url(https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/icons/search-light.svg) no-repeat left 16px center;
-            font-size: 13px;
-            line-height: 16px;
-            padding: 0 16px 0 48px;
-        }
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color:#76919F;
-            opacity: 1; /* Firefox */
-        }
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-            color: #76919F;
-        }
-        ::-ms-input-placeholder { /* Microsoft Edge */
-            color: #76919F;
-        }
-        .nav__search-desktop{
-            display: none;
-        }
-        .nav__list.white{
-            margin-top: 12px;
-        }
-        .nav__list.white li{
-            border-bottom: 1px solid #EFEFEF;
-            padding: 7px 0;
-        }
-        .nav__list.white li:last-of-type{
-            border-bottom: 0;
-        }
-        .nav__list.white a,
-        .sign-in a{
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 17px;
-            color: #000000;
-        }
-        .nav__bottom-list a{
-            font-size: 12px;
-            line-height: 15px;
-            color: #FFFFFF;
-        }
-        .sign-in{
-            padding: 7px 0;
-        }
-        .nav__list.black li{
-            padding: 7px 0;
-        }
-        .nav__list.black li:first-of-type{
-            padding: 0 0 7px 0;
-        }
-        .nav__list.black:last-of-type{
-            padding: 11px 0 12px 0;
-        }
-        .copyright{
-            font-size: 12px;
-            line-height: 15px;
-            color: #FFFFFF;
-        }
-        /*==================== TOP AD ====================*/
-        .top-ad{
-            background-color: #fff;
-        }
-        .top-ad__container{
-            height: 91px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        /*==================== EVENTS ====================*/
-        .events__title{
-            font-size: 33px;
-            font-weight: bold;
-            padding: 17px 0 19px 0;
-        }
-        .events__title:before{
-            content: '';
-            width: 8px;
-            height: 9px;
-            background-color: #094B6D;
-            vertical-align: middle;
-            display: inline-block;
-            margin: -4px 24px 0 0;
-        }
-        .events__blocks{
-            display: grid;
-            gap: 10px;
-            align-items: center;
-            grid-template-columns: repeat(auto-fit, minmax(221px, 1fr));
-        }
-        .events__block{
-            background-color: #fff;
-            width: 221px;
-            margin: 0 auto 10px;
-            min-height: 275px;
-            text-align: center;
-        }
-        .events__block-label{
-            text-align: left;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 12px;
-            text-transform: capitalize;
-            color: #FA9B00;
-            line-height: 15px;
-        }
-        .events__block-date{
-            font-weight: bold;
-            font-size: 16px;
-            text-align: center;
-            color: #000000;
-            padding: 0px 30px;
-            line-height: 22px;
-        }
-        .events__block-more{
-            font-size: 12px;
-            text-decoration: underline;
-            text-transform: capitalize;
-            color: #094B6D;
-            padding: 10px 0;
-            line-height: 15px;
-        }
-        .events__block-more:after{
-            content: '';
-            width: 0;
-            height: 0;
-            border-top: 3px solid transparent;
-            border-bottom: 3px solid transparent;
-            border-left: 3px solid #094B6D;
-            display: inline-block;
-            margin-left: 5px;
-        }
-        .events__block:last-child{
-            margin: 0 auto 16px;
-        }
-        /*==================== MAIN CONTENT ====================*/
-        .content{
-            width: 100%;
-        }
-        .main-content__container.container {
-            padding-bottom: 30px;
-        }
-        .select-date{
-            width: 100%;
-            height: 38px;
-            padding: 0px 17px;
-            border-radius: 18px;
-            border: 1px solid #DFDFDF;
-            background: #fff url(https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/icons/select-arrow.svg) no-repeat right 17px center;
-            -webkit-appearance: none;
-            font-size: 13px;
-            color: #76919F;
-            font-family: "Proxima Nova";
-        }
-        .content__item{
-            background-color: #fff;
-            margin: 20px 0 20px 0;
-            padding: 20px;
-        }
-        .hidden{
-            display: none;
-        }
-        .content__item-date,
-        .content__item-location{
-            font-weight: bold;
-            font-size: 12px;
-            line-height: 16px;
-            text-transform: capitalize;
-            color: #094B6D;
-        }
-        .content__item-date{
-            padding: 0 0 0 20px;
-            margin-bottom: 3px;
-            background: url(https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/icons/calendar.svg) no-repeat;
-        }
-        .content__item-location{
-            padding: 0 0 0 16px;
-            background: url(https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/icons/location.svg) no-repeat;
-        }
-        .content__item-img{
-            flex: 0 0 115px;
-            overflow: hidden;
-            height: 91px;
-        }
-        .content__item-img img{
-            height: 91px;
-            object-fit: cover;
-        }
-        .content__item-row{
-            display: flex;
-            padding: 10px 0 0 0;
-        }
-        .content__item-body{
-            flex: 1 1 auto;
-            padding: 0 0 0 10px;
-        }
-        .content__item-title a{
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 16px;
-            padding: 0 0 10px 0;
-            color: #000;
-            display: block;
-        }
-        .content__item-description{
-            font-size: 13px;
-            line-height: 16px;
-            color: #353535;
-        }
-        /*==================== LOADING ====================*/
-        .loading{
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .loading img{
-            width: 30px;
-            height: 30px;
-        }
-        .loading.hidden{
-            display: none;
-        }
-        /*==================== SIDEBAR ====================*/
-        .sidebar__ad{
-            width: 300px;
-            height: 250px;
-        }
-        .sidebar__top-ad{
-            margin: 38px auto 24px;
-        }
-        .sidebar__bottom-ad{
-            margin: 24px auto 38px;
-        }
-        .sidebar__nav{
-            padding: 20px;
-            background: #00344F;
-        }
-        .sidebar__title{
-            font-weight: bold;
-            font-size: 34px;
-            line-height: 38px;
-            color: #FFFFFF;
-            padding: 0 0 12px 0;
-        }
-        .sidebar__link{
-            padding: 10px 0;
-            border-bottom: 1px solid #8A8A8A;
-        }
-        .sidebar__link:last-of-type{
-            border-bottom: 0px;
-            padding: 10px 0 0 0;
-        }
-        .sidebar__link a{
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 17px;
-            color: #FFFFFF;
-        }
-        /*==================== RESPONSIVE ====================*/
-        @media (min-width: 333px) and (max-width: 376px) {
-            .container{
-                padding: 0;
-            }
-            .top-bar__container{
-                width: 340px;
-            }
-            .nav__container{
-                width: 333px;
-            }
-            .top-ad__container,
-            .events__container,
-            .main-content__container{
-                width: 335px;
-            }
-        }
-        @media screen and (max-width: 350px) {
-            .nav__container{
-                gap: 10px;
-            }
-            .container {
-                padding: 0 10px;
-            }
-        }
-        @media screen and (min-width: 376px) {
-            .top-bar__container,
-            .nav__container{
-                max-width: 1380px;
-                width: 100%;
-            }
-            .top-ad__container,
-            .events__container,
-            .main-content__container{
-                max-width: 1222px;
-                width: 100%;
-            }
-        }
-        @media screen and (min-width: 768px) {
-            .content__item-top {
-                display: flex;
-                justify-content: space-between;
-            }
-            .content__item-title a {
-                font-size: 26px;
-                line-height: 30px;
-            }
-            .content__item-img {
-                flex: 0 0 154px;
-                overflow: hidden;
-                height: 105px;
-            }
-            .content__item-img img{
-                height: auto;
-            }
-            .content__item-description {
-                font-size: 17px;
-            }
-            .content__item-row {
-                padding: 12px 0 0 0;
-            }
-        }
-        @media screen and (max-width: 768px) {
-            #ad-img-1,
-            #ad-img-2,
-            #ad-img-3{
-                width: 100%;
-            }
-        }
-        @media screen and (min-width: 1130px) {
-            .nav__mobile-menu{
-                display: none;
-            }
-            .nav__subscribe{
-                display: block;
-            }
-            .select-date{
-                width: 252px;
-            }
-            .main-content__container{
-                display: flex;
-                justify-content: space-between;
-                gap: 20px;
-                padding-top: 32px;
-            }
-            .top-ad__container{
-                min-height: 155px;
-            }
-            .sidebar{
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: column;
-                flex: 0 0 300px;
-                margin-top: 57px;
-                position: -webkit-sticky;
-                position: sticky;
-                align-self: flex-start;
-                top: 0;
-            }
-            sidebar__nav{
-                order: 1;
-            }
-            .sidebar__top-ad{
-                order: 2;
-                margin: 20px 0 20px;
-            }
-            .sidebar__bottom-ad{
-                margin: 0;
-                order: 3;
-            }
-            .top-bar{
-                height: 38px;
-            }
-            .nav{
-                min-height: 109px;
-            }
-            .nav__logo-desktop{
-                display: block;
-            }
-            .nav__logo-desktop img{
-                display: block;
-                margin: 12px 0 0 0;
-            }
-            .nav__logo-mobile{
-                display: none;
-            }
-            .nav__search-mobile{
-                display: none;
-            }
-            .nav__search-desktop{
-                display: block;
-            }
-            .nav__search-desktop .site-search{
-                width: 284px;
-                margin-top: 11px;
-            }
-            .subscribe-button{
-                font-weight: bold;
-                font-size: 13px;
-                line-height: 16px;
-                color: #FFFFFF;
-                background-color: #FA9B00;
-                width: 104px;
-                height: 39px;
-                border-radius: 21px;
-                margin: 10px 0 0 0;
-            }
-            .explore{
-                font-weight: bold;
-                font-size: 15px;
-                line-height: 18px;
-                color: #000000;
-                margin: 10px 45px 0 36px;
-                cursor: pointer;
-            }
-            .explore img{
-                vertical-align: middle;
-                margin-left: 14px;
-            }
-            .explore.rotate img{
-                transform: rotate(-180deg);
-            }
-            .events__title {
-                padding: 17px 0px 20px 15px;
-            }
-            .events__blocks {
-                gap: 29px;
-            }
-            .events__block:last-child {
-                margin: 0 auto 20px;
-            }
-            .nav__search{
-                margin-left: auto;
-            }
-            /*==================== MENU DESKTOP ====================*/
-            .nav__menu-desktop{
-                display: block;
-                position: relative;
-            }
-            .nav__dropdown-desktop:before{
-                content: '';
-                width: 0;
-                height: 0;
-                border-left: 10px solid transparent;
-                border-right: 10px solid transparent;
-                border-bottom: 10px solid #ffffff;
-                position: absolute;
-                top: -10px;
-                right: 57px;
-            }
-            .nav__dropdown-desktop{
-                display: none;
-                width: 435px;
-                background-color: #fff;
-                position: absolute;
-                top: 55px;
-                right: 23px;
-                box-shadow: 0 0 5px #00000014;
-            }
-            .nav__dropdown-desktop.visible{
-                display: block;
-            }
-            .columns{
-                display: flex;
-                gap: 41px;
-                padding: 20px 28px 11px 28px;
-            }
-            .dark {
-                background-color: #2E2E2E;
-            }
-            .dark .columns{
-                display: flex;
-                gap: 30px;
-                padding: 19px 20px 7px 20px;
-            }
-            .columns li {
-                padding-bottom: 15px;
-            }
-            .dark .columns li {
-                padding-bottom: 13px;
-            }
-            .columns a {
-                font-weight: bold;
-                font-size: 14px;
-                line-height: 17px;
-                color: #000000;
-            }
-            .dark .columns a {
-                color: #fff;
-                font-weight: normal;
-                font-size: 12px;
-                line-height: 15px;
-            }
-            .nav__dropdown-desktop .copyright{
-                font-size: 12px;
-                line-height: 15px;
-                color: #FFFFFF;
-                padding: 0px 20px 13px 20px;
-            }
-        }
-        @media (min-width: 376px) and (max-width: 1410px) {
-            .container{
-                padding: 0 10px;
-            }
-        }
-        @media (min-width: 768px) and (max-width: 1130px) {
-            .select-date{
-                width: 252px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
 <!--==================== HEADER ====================-->
@@ -639,7 +20,7 @@
             <!--==================== MOBILE MENU ====================-->
             <div class="nav__mobile-menu">
                 <div class="nav__bars">
-                    <img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/icons/bars.svg" alt="" class="nav__bars-icon">
+                    <img src="/src/img/icons/bars.svg" alt="" class="nav__bars-icon">
                 </div>
                 <div class="nav__dropdown">
                     <div class="nav__top">
@@ -683,8 +64,8 @@
 
             <!--==================== LOGO ====================-->
             <div class="nav__logo">
-                <div class="nav__logo-mobile"><a href="https://www.rebelmouse.com"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/logo.svg" alt=""></a></div>
-                <div class="nav__logo-desktop"><a href="https://www.rebelmouse.com"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/logo-large.svg" alt=""></a></div>
+                <div class="nav__logo-mobile"><a href="https://www.rebelmouse.com"><img src="/src/img/logo.svg" alt=""></a></div>
+                <div class="nav__logo-desktop"><a href="https://www.rebelmouse.com"><img src="/src/img/logo-large.svg" alt=""></a></div>
             </div>
 
             <!--==================== SEARCH ====================-->
@@ -696,7 +77,7 @@
                 </div>
                 <div class="nav__search-mobile">
                     <div class="nav__search-icon">
-                        <img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/icons/search.svg" alt="">
+                        <img src="/src/img/icons/search.svg" alt="">
                     </div>
                     <div class="nav__search-dropdown">
                         <div class="nav__search-input">
@@ -707,7 +88,7 @@
             </div>
             <!--==================== MENU DESKTOP ====================-->
             <div class="nav__menu-desktop">
-                <div class="explore">Explore <img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/icons/select-arrow.svg" alt=""></div>
+                <div class="explore">Explore <img src="/src/img/icons/select-arrow.svg" alt=""></div>
 
                 <div class="nav__dropdown-desktop">
                     <div class="columns">
@@ -769,31 +150,31 @@
         <div class="events__blocks">
             <div class="events__block">
                 <div class="events__block-label">Featured Event</div>
-                <div class="events__block-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/events/event-img-1.png" alt=""></div>
+                <div class="events__block-img"><img src="/src/img/events/event-img-1.png" alt=""></div>
                 <div class="events__block-date">January 1 - December 31, 2021</div>
                 <div class="events__block-more">Learn More</div>
             </div>
             <div class="events__block">
                 <div class="events__block-label">Featured Event</div>
-                <div class="events__block-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/events/event-img-2.png" alt=""></div>
+                <div class="events__block-img"><img src="/src/img/events/event-img-2.png" alt=""></div>
                 <div class="events__block-date">January 1 - December 31, 2021</div>
                 <div class="events__block-more">Learn More</div>
             </div>
             <div class="events__block">
                 <div class="events__block-label">Featured Event</div>
-                <div class="events__block-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/events/event-img-3.png" alt=""></div>
+                <div class="events__block-img"><img src="/src/img/events/event-img-3.png" alt=""></div>
                 <div class="events__block-date">December 13 - December 16, 2021 Marco Island , Florida</div>
                 <div class="events__block-more">Learn More</div>
             </div>
             <div class="events__block">
                 <div class="events__block-label">Featured Event</div>
-                <div class="events__block-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/events/event-img-4.png" alt=""></div>
+                <div class="events__block-img"><img src="/src/img/events/event-img-4.png" alt=""></div>
                 <div class="events__block-date">August 9 - August 11, 2022 Austin , Texas</div>
                 <div class="events__block-more">Learn More</div>
             </div>
             <div class="events__block">
                 <div class="events__block-label">Featured Event</div>
-                <div class="events__block-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/events/event-img-1.png" alt=""></div>
+                <div class="events__block-img"><img src="/src/img/events/event-img-1.png" alt=""></div>
                 <div class="events__block-date">January 1 - December 31, 2021</div>
                 <div class="events__block-more">Learn More</div>
             </div>
@@ -818,7 +199,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-1.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-1.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -831,7 +212,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-2.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-2.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -844,7 +225,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-3.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-3.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -857,7 +238,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-4.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-4.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -870,7 +251,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-5.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-5.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -883,7 +264,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-6.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-6.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -896,7 +277,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-7.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-7.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -909,7 +290,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-8.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-8.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -922,7 +303,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-9.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-9.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -935,7 +316,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-10.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-10.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -948,7 +329,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-1.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-1.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -961,7 +342,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-2.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-2.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -974,7 +355,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-3.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-3.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -987,7 +368,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-4.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-4.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -1000,7 +381,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-5.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-5.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -1013,7 +394,7 @@
                     <div class="content__item-location">Marco Island, Florida 34145</div>
                 </div>
                 <div class="content__item-row">
-                    <div class="content__item-img"><img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/articles/item-5.jpg" alt=""></div>
+                    <div class="content__item-img"><img src="/src/img/articles/item-5.jpg" alt=""></div>
                     <div class="content__item-body">
                         <div class="content__item-title"><a href="https://www.rebelmouse.com">2021-Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</a></div>
                         <div class="content__item-description">Conference</div>
@@ -1028,7 +409,7 @@
                 <option>04.01.2021</option>
             </select>
             <div class="loading">
-                <img src="https://balenciaga33.github.io/RebelMouse-Testcase2/src/img/loading.gif" alt="">
+                <img src="/src/img/loading.gif" alt="">
             </div>
         </main>
 
@@ -1065,94 +446,8 @@
         </aside>
     </div>
 </section>
-
-<script>
-    /*==================== MOBILE MENU & SEARCH DROPDOWN ====================*/
-    const menuIcon = document.querySelector('.nav__bars');
-    const dropDownMenu = document.querySelector('.nav__dropdown');
-    const searchIcon = document.querySelector('.nav__search-icon');
-    const dropDownSearch = document.querySelector('.nav__search-dropdown');
-    menuIcon.addEventListener("click", function () {
-        dropDownMenu.classList.toggle("visible");
-        if (dropDownMenu.classList.contains('visible')) {
-            dropDownSearch.classList.remove("visible");
-        }
-    });
-
-    searchIcon.addEventListener("click", function () {
-        dropDownSearch.classList.toggle("visible");
-        if (dropDownSearch.classList.contains('visible')) {
-            dropDownMenu.classList.remove("visible");
-        }
-    });
-</script>
-<script>
-    /*==================== DESKTOP MENU DROPDOWN ====================*/
-    const menuDropdown = document.querySelector('.explore');
-    const dropDownMenuDesktop = document.querySelector('.nav__dropdown-desktop');
-
-    menuDropdown.addEventListener("click", function () {
-        menuDropdown.classList.toggle("rotate");
-        dropDownMenuDesktop.classList.toggle("visible");
-    });
-</script>
-<script>
-    /*==================== LOAD MORE ====================*/
-    const hidden = [...document.querySelectorAll('.content__item.hidden')];
-    const loadMoreIcon = document.querySelector('.loading');
-    const point = document.getElementById('point');
-
-
-    hidden.splice(0, 7).forEach(
-        elem => elem.classList.remove('hidden')
-    );
-
-    function loadMore() {
-        hidden.splice(0, 3).forEach(
-            elem => elem.classList.remove('hidden')
-        )
-        if (hidden.length == 0) {
-            loadMoreIcon.classList.add('hidden');
-        }
-    };
-    var isInViewport = function (elem) {
-        var bounding = elem.getBoundingClientRect();
-        return (
-            bounding.top >= 0 &&
-            bounding.left >= 0 &&
-            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    };
-    window.addEventListener('scroll', function (event) {
-        if (isInViewport(point)) {
-            loadMore();
-        }
-    }, false);
-</script>
-<script>
-    /*==================== INSERT ADS RANDOMLY ====================*/
-    const url_lib = 'https://reliability.rebelmouse.dev/customfeeds/feed/ads-feed/json'
-
-    function getEvents(data) {
-        const range = Math.ceil(Math.random() * 5);
-        return data.events[range];
-    }
-
-    function setAd(idData, data, prop) {
-        const events = getEvents(data);
-        document.getElementById(idData.link).href = decodeURIComponent(events.linkoutURL);
-        document.getElementById(idData.img).src = events[prop];
-    }
-
-    async function getAd() {
-        const response = await fetch(url_lib);
-        const data = await response.json();
-        setAd({ link: 'ad-link-1', img: 'ad-img-1'}, data, 'horizontalImageURL');
-        setAd({ link: 'ad-link-2', img: 'ad-img-2'}, data, 'sidebarImageURL');
-        setAd({ link: 'ad-link-3', img: 'ad-img-3'}, data, 'sidebarImageURL');
-    }
-    getAd();
-</script>
+<script src="src/js/dropdown.js"></script>
+<script src="src/js/ads.js"></script>
+<script src="src/js/load-more.js"></script>
 </body>
 </html>
